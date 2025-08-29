@@ -1,21 +1,12 @@
 import CryptoJS from "crypto-js";
 import { useCallback, useEffect, useState } from "react";
 
-interface EncryptionConfig {
-  secretKey?: string;
-}
-
-const DEFAULT_CONFIG: Required<EncryptionConfig> = {
-  secretKey: "your-default-secret-key",
-};
+const secretKey = "KlsMjhsdkeowpppeolx:PPsoodk";
 
 function useEncryptedLocalStorage<T>(
   key: string,
-  initialValue: T,
-  config: EncryptionConfig = {}
+  initialValue: T
 ): [T, (value: T | ((prevValue: T) => T)) => void, () => void] {
-  const { secretKey } = { ...DEFAULT_CONFIG, ...config };
-
   const encrypt = useCallback(
     (data: string): string => {
       return CryptoJS.AES.encrypt(data, secretKey).toString();

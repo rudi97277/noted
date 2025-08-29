@@ -98,6 +98,7 @@ export default function Dashboard() {
         setMonthDate={setMonthDate}
       />
       <AddRecord
+        isPending={store.isPending}
         form={form}
         onSubmit={onSubmit}
         addOpen={addOpen}

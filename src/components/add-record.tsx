@@ -31,6 +31,7 @@ interface IAddRecordProps {
   form: UseFormReturn<IRecordStoreRequest>;
   addOpen: boolean;
   setAddOpen: (data: boolean) => void;
+  isPending: boolean;
   onSubmit: SubmitHandler<IRecordStoreRequest>;
 }
 
@@ -38,6 +39,7 @@ export default function AddRecord({
   form,
   onSubmit,
   addOpen,
+  isPending,
   setAddOpen,
 }: IAddRecordProps) {
   return (
@@ -141,7 +143,7 @@ export default function AddRecord({
                     </FormItem>
                   )}
                 />
-                <Button type="submit">Submit</Button>
+                {!isPending && <Button type="submit">Submit</Button>}
               </form>
             </Form>
           </div>
