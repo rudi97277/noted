@@ -25,3 +25,10 @@ export function safeNumber(value: number | string) {
 export function safeRange(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
 }
+
+export function toMonthYear(d: Date) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "2-digit",
+    year: "numeric",
+  }).format(d);
+}

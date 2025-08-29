@@ -15,8 +15,6 @@ export default defineConfig({
             "react-router",
             "@tanstack/react-query",
             "@tanstack/react-table",
-            "@dnd-kit/react",
-            "@dnd-kit/helpers",
           ],
         },
       },
@@ -28,6 +26,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/itsnoted/",
   test: {
     globals: true,
     environment: "jsdom",

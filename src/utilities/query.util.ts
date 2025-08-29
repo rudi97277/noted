@@ -82,12 +82,12 @@ export function useRequestQuery<Res extends object = {}, Req = unknown>(
 
 function createKey(
   method: HttpMethod,
-  url: TAllRoutes,
+  url: TAllRoutes | string,
   defaultKey?: TAllRoutes
 ) {
   return [`${method}:${defaultKey || url}`];
 }
 
-function removeLastPart(url: TAllRoutes, divider: string = "/") {
+function removeLastPart(url: TAllRoutes | string, divider: string = "/") {
   return url.split(divider).slice(0, -1).join(divider) as TAllRoutes;
 }

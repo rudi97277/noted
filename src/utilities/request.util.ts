@@ -10,7 +10,7 @@ import axios, {
 export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 export interface IRequestPayloads<T> {
-  url: TAllRoutes;
+  url: TAllRoutes | string;
   method: HttpMethod;
   headers?: RawAxiosRequestHeaders;
   data?: T;
@@ -51,6 +51,7 @@ export default async function request<Res extends object = {}, Req = unknown>({
       url: `${baseUrl}/${url}`,
       method,
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type":
           bodyType === "formData" ? "multipart/form-data" : "application/json",
         ...headers,
